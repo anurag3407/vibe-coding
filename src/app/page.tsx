@@ -21,8 +21,13 @@ import {
   Cpu,
   UtensilsCrossed,
   Coins,
-  AlertOctagon
+  AlertOctagon,
+  Rocket,
+  Bot,
+  Lock,
+  Database
 } from "lucide-react";
+import { clsx } from "clsx";
 
 export default function HomePage() {
   const masterLoop = [
@@ -48,33 +53,55 @@ export default function HomePage() {
       color: "#D02020"
     },
     {
+      title: "WHAT NOT TO PUSH",
+      analogy: "The Locked Safe",
+      desc: "You wouldn't tape your house keys and credit card PIN to your front door. .gitignore keeps secrets off public GitHub.",
+      icon: Lock,
+      color: "#121212"
+    },
+    {
       title: "MODEL CONTEXT PROTOCOL",
       analogy: "The Universal USB-C Cable",
       desc: "Just like plugging a mouse into your laptop, MCP lets AI plug into your databases, files, and browsers with zero friction.",
       icon: Cpu,
-      color: "#121212"
+      color: "#1040C0"
     },
     {
-      title: "FULL-STACK APPS",
-      analogy: "The Restaurant Setup",
-      desc: "The Dining Room is what users see (Frontend). The Waiter takes your order (Server). The Kitchen Pantry stores the ingredients (Database).",
-      icon: UtensilsCrossed,
-      color: "#F0C020"
+      title: "MERN STACK",
+      analogy: "Warehouse & Delivery System",
+      desc: "MongoDB is the storage warehouse, Express is the delivery truck, and React is the shiny retail store where customers click.",
+      icon: Database,
+      color: "#D02020"
+    },
+    {
+      title: "TESTING & PLAYWRIGHT",
+      analogy: "The Robot Secret Shopper",
+      desc: "A robot customer opens Chrome, types passwords, clicks buttons, and alerts you if any checkout button is broken.",
+      icon: Bot,
+      color: "#1040C0"
     },
     {
       title: "WEB3 & SMART CONTRACTS",
       analogy: "The Digital Vending Machine",
-      desc: "You insert a coin, press the button, and the drink drops automatically. No store clerk or middleman can interfere or take your money.",
+      desc: "You insert a coin, press the button, and the drink drops automatically. No store clerk or middleman can interfere.",
       icon: Coins,
-      color: "#1040C0"
+      color: "#F0C020"
+    },
+    {
+      title: "DEPLOYMENT & DOMAINS",
+      analogy: "The Rocket Launchpad",
+      desc: "Building on localhost is tinkering in your garage. Vercel and custom domains roll your product out to the entire globe.",
+      icon: Rocket,
+      color: "#121212"
     }
   ];
 
   const phases = [
     { number: 1, title: "PHASE 1: GETTING READY", subtitle: "Zero to Laptop Ready", color: "bg-[#D02020]", modules: MODULES.slice(0, 3) },
     { number: 2, title: "PHASE 2: DIRECTING THE AI", subtitle: "Prompts, Memory & Blueprints", color: "bg-[#1040C0]", modules: MODULES.slice(3, 6) },
-    { number: 3, title: "PHASE 3: THE BUILDER'S TOOLKIT", subtitle: "UI Lego Bricks, Git & MCP", color: "bg-[#F0C020] text-[#121212]", modules: MODULES.slice(6, 9) },
-    { number: 4, title: "PHASE 4: FULL-STACK & LAUNCHING", subtitle: "Real Web Apps, Web3 & Shipping", color: "bg-[#121212]", modules: MODULES.slice(9, 12) },
+    { number: 3, title: "PHASE 3: THE BUILDER'S TOOLKIT & GIT SAFETY", subtitle: "UI Lego Bricks, Git & MCP", color: "bg-[#F0C020] text-[#121212]", modules: MODULES.slice(6, 10) },
+    { number: 4, title: "PHASE 4: FULL-STACK & WEB3", subtitle: "Next.js, MERN Stack & Smart Contracts", color: "bg-[#121212]", modules: MODULES.slice(10, 13) },
+    { number: 5, title: "PHASE 5: TESTING & PRODUCTION LAUNCH", subtitle: "Playwright E2E, Vercel, VPS & Domains", color: "bg-[#D02020]", modules: MODULES.slice(13, 16) },
   ];
 
   return (
@@ -100,7 +127,7 @@ export default function HomePage() {
               </h1>
 
               <p className="text-base sm:text-xl font-medium text-zinc-800 leading-relaxed max-w-2xl mb-10">
-                You don&apos;t need 4 years of computer science. If you can explain your idea in plain English, AI will build your website, database, and smart contracts for you.
+                You don&apos;t need 4 years of computer science. If you can explain your idea in plain English, AI will build your website, MERN stack backend, test suites, and smart contracts for you.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
@@ -129,7 +156,7 @@ export default function HomePage() {
                 <span>&bull;</span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 clip-triangle bg-[#F0C020]" />
-                  100% Free Tools
+                  16 Full Modules
                 </span>
               </div>
             </div>
@@ -155,7 +182,7 @@ export default function HomePage() {
                     IDEAS &gt; SYNTAX
                   </div>
                   <p className="text-xs text-zinc-600 font-medium mt-2 leading-relaxed">
-                    AI writes the semicolons. You provide the vision, taste, and direction.
+                    AI writes the semicolons and SQL queries. You provide the product vision, taste, and direction.
                   </p>
                 </div>
 
@@ -197,30 +224,30 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {beginnerAnalogies.map((item, idx) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={idx}
-                className="p-8 bg-white border-2 md:border-4 border-[#121212] shadow-hard-md flex flex-col justify-between"
+                className="p-6 bg-white border-2 md:border-4 border-[#121212] shadow-hard-md flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-10 h-10 border-2 border-black flex items-center justify-center bg-zinc-100 shadow-hard-sm">
                       <Icon className="w-5 h-5 text-[#121212]" />
                     </div>
-                    <span className="px-2 py-0.5 text-[10px] font-black uppercase bg-[#121212] text-white">
+                    <span className="px-2 py-0.5 text-[9px] font-black uppercase bg-[#121212] text-white">
                       {item.title}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-black uppercase tracking-tight text-[#121212] mb-2">
+                  <h3 className="text-lg font-black uppercase tracking-tight text-[#121212] mb-2">
                     {item.analogy}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-zinc-600 font-medium leading-relaxed">
+                  <p className="text-xs text-zinc-600 font-medium leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -254,18 +281,18 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          THE 4 SEQUENTIAL PHASES (12 LESSONS)
+          THE 5 SEQUENTIAL PHASES (16 LESSONS)
       ========================================================================= */}
       <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b-4 border-[#121212]">
         <div className="max-w-3xl mb-16">
           <span className="inline-block px-3 py-1 bg-[#121212] text-white font-black uppercase text-xs tracking-widest border-2 border-black shadow-hard-sm mb-3">
-            THE SEQUENTIAL CURRICULUM
+            THE COMPLETE SEQUENTIAL CURRICULUM
           </span>
           <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-[#121212]">
-            4 LOGICAL PHASES &bull; 12 LESSONS
+            5 LOGICAL PHASES &bull; 16 LESSONS
           </h2>
           <p className="text-base text-zinc-600 font-medium mt-2">
-            Each lesson builds naturally on the previous one. Follow in order from Phase 1 to Phase 4.
+            Each lesson builds naturally on the previous one. Follow in order from Phase 1 to Phase 5.
           </p>
         </div>
 
@@ -281,12 +308,15 @@ export default function HomePage() {
                   <p className="text-xs sm:text-sm font-medium opacity-90">{phase.subtitle}</p>
                 </div>
                 <span className="text-xs font-mono font-bold uppercase px-3 py-1 bg-black/40 border border-white/20">
-                  3 LESSONS
+                  {phase.modules.length} LESSONS
                 </span>
               </div>
 
-              {/* 3 Module Cards in this Phase */}
-              <div className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Module Cards in this Phase */}
+              <div className={clsx(
+                "p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6",
+                phase.modules.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
+              )}>
                 {phase.modules.map((mod) => (
                   <Link
                     key={mod.id}
@@ -294,7 +324,7 @@ export default function HomePage() {
                     className="group block select-none"
                   >
                     <BauhausCard
-                      headerTitle={`LESSON 0${mod.number}`}
+                      headerTitle={`LESSON ${mod.number < 10 ? `0${mod.number}` : mod.number}`}
                       headerColor={mod.accentColor}
                       badgeColor={mod.accentColor}
                       badgeShape={mod.number % 3 === 0 ? "triangle" : mod.number % 2 === 0 ? "circle" : "square"}

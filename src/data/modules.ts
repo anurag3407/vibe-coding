@@ -200,7 +200,7 @@ export const MODULES: ModuleData[] = [
   },
 
   // ==========================================
-  // PHASE 3: THE BUILDER'S TOOLKIT
+  // PHASE 3: THE BUILDER'S TOOLKIT & GIT SAFETY
   // ==========================================
   {
     id: "m7",
@@ -260,16 +260,44 @@ export const MODULES: ModuleData[] = [
   },
   {
     id: "m9",
-    slug: "9-mcp",
+    slug: "9-what-not-to-push",
     number: 9,
+    phase: "Phase 3: The Builder's Toolkit",
+    phaseNumber: 3,
+    title: "What NEVER to Push to GitHub",
+    subtitle: ".gitignore, Secret Scanners & Leaked Key Protocol",
+    duration: "15 Mins",
+    slidesCount: 20,
+    accentColor: "red",
+    bgHex: "#D02020",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    eli5Analogy: "🔒 The Locked Safe: You wouldn't leave your house keys and credit card pin stuck to your front door for everyone on the street to see. Your .gitignore file is the locked safe that keeps secrets off the public internet.",
+    description: "Learn what files must never be committed to Git (.env, node_modules, .pem keys). Understand how automated bot scrapers find leaked keys in seconds, and master the Defcon-1 emergency purge protocol.",
+    outcomes: [
+      "The master .gitignore template for Next.js, Node, and Python apps",
+      "Why deleting a leaked key in a new commit DOES NOT erase it from Git history",
+      "How to use `git rm --cached` and BFG Repo-Cleaner to completely wipe exposed secrets",
+      "How to install Git pre-commit hooks to block accidental key commits automatically"
+    ],
+    workflowSteps: [
+      { step: "01", title: ".GITIGNORE", description: "Add .env and node_modules to .gitignore before your first commit.", tag: "Lock" },
+      { step: "02", title: "CHECK STATUS", description: "Run `git status` to ensure secrets are invisible to git.", tag: "Inspect" },
+      { step: "03", title: "IF LEAKED", description: "Immediately REVOKE the API key in the provider dashboard.", tag: "Revoke" },
+      { step: "04", title: "PURGE GIT", description: "Use `git rm --cached` and BFG repo cleaner to erase past commits.", tag: "Clean" }
+    ]
+  },
+  {
+    id: "m10",
+    slug: "10-mcp",
+    number: 10,
     phase: "Phase 3: The Builder's Toolkit",
     phaseNumber: 3,
     title: "The Universal USB-C Plug (MCP)",
     subtitle: "Giving AI Real-World Tools & Live Databases",
     duration: "15 Mins",
     slidesCount: 25,
-    accentColor: "red",
-    bgHex: "#D02020",
+    accentColor: "blue",
+    bgHex: "#1040C0",
     heroImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
     eli5Analogy: "🔌 The Universal USB-C Cable: Instead of buying a different cable for every gadget, USB-C plugs into everything. MCP is USB-C for AI: it lets Claude or Antigravity plug into databases, files, and browsers.",
     description: "Understand Anthropic's open standard. Connect AI directly to your database, let it read your spreadsheets, search Google, and manage your GitHub issues autonomously.",
@@ -288,20 +316,20 @@ export const MODULES: ModuleData[] = [
   },
 
   // ==========================================
-  // PHASE 4: FULL-STACK, WEB3 & LAUNCHING
+  // PHASE 4: FULL-STACK ARCHITECTURES & WEB3
   // ==========================================
   {
-    id: "m10",
-    slug: "10-fullstack",
-    number: 10,
+    id: "m11",
+    slug: "11-fullstack",
+    number: 11,
     phase: "Phase 4: Full-Stack & Web3",
     phaseNumber: 4,
-    title: "Building a Real Web App",
+    title: "Full-Stack Web Architecture",
     subtitle: "Next.js, Supabase, Safe Secrets & Stripe",
     duration: "20 Mins",
     slidesCount: 30,
-    accentColor: "blue",
-    bgHex: "#1040C0",
+    accentColor: "yellow",
+    bgHex: "#F0C020",
     heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
     eli5Analogy: "🍽️ The Restaurant: The dining room and menu is the Frontend. The waiter taking your order is the Server Action. The locked kitchen pantry where food is stored is the Supabase Database.",
     description: "Understand how a complete web business works. From what the user sees on their phone, to storing accounts safely, avoiding API secret leaks with NEXT_PUBLIC_, and taking payments with Stripe.",
@@ -319,17 +347,45 @@ export const MODULES: ModuleData[] = [
     ]
   },
   {
-    id: "m11",
-    slug: "11-web3",
-    number: 11,
+    id: "m12",
+    slug: "12-mern-stack",
+    number: 12,
+    phase: "Phase 4: Full-Stack & Web3",
+    phaseNumber: 4,
+    title: "Building a MERN App with AI",
+    subtitle: "MongoDB Atlas, 0.0.0.0/0 Whitelist, Express & React",
+    duration: "20 Mins",
+    slidesCount: 30,
+    accentColor: "black",
+    bgHex: "#121212",
+    heroImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+    eli5Analogy: "📦 The Warehouse & Delivery Truck: MongoDB is the warehouse holding boxes of documents. Express & Node are the delivery dispatch center with specific routes (/api/posts). React is the friendly storefront where customers browse and order.",
+    description: "Step-by-step masterclass on building a MERN stack app with AI. Learn how to set up MongoDB Atlas, fix the dreaded ETIMEDOUT error by whitelisting 0.0.0.0/0, create Express REST endpoints, and connect React without CORS bugs.",
+    outcomes: [
+      "Create a free MongoDB Atlas cluster and generate your secure MONGO_URI",
+      "Fix the #1 beginner trap: Add Network Access 0.0.0.0/0 to prevent timeout freezes",
+      "Build a clean 50-line Express + Mongoose server with CORS enabled",
+      "Connect React components using async fetch with loading and error states"
+    ],
+    workflowSteps: [
+      { step: "01", title: "ATLAS DB", description: "Create free MongoDB cluster and copy connection string.", tag: "Database" },
+      { step: "02", title: "WHITELIST", description: "Add 0.0.0.0/0 in Network Access so your server can connect.", tag: "Network" },
+      { step: "03", title: "EXPRESS API", description: "Set up Mongoose schemas and REST endpoints with CORS.", tag: "Backend" },
+      { step: "04", title: "REACT UI", description: "Fetch and display data in React with real-time updates.", tag: "Frontend" }
+    ]
+  },
+  {
+    id: "m13",
+    slug: "13-web3",
+    number: 13,
     phase: "Phase 4: Full-Stack & Web3",
     phaseNumber: 4,
     title: "Blockchain for Beginners",
     subtitle: "Smart Contracts, Crypto Wallets & Escrows",
     duration: "15 Mins",
     slidesCount: 25,
-    accentColor: "yellow",
-    bgHex: "#F0C020",
+    accentColor: "red",
+    bgHex: "#D02020",
     heroImage: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80",
     eli5Analogy: "🎰 The Digital Vending Machine: You put in a coin, press the button, and the drink drops out automatically. Nobody can steal your money, and no store clerk is needed. That is a Smart Contract.",
     description: "Demystify blockchain without the hype. Write your first Solidity contract with AI, audit it for safety, and add a 'Connect Wallet' button to your website in 3 lines of code.",
@@ -346,32 +402,92 @@ export const MODULES: ModuleData[] = [
       { step: "04", title: "DEPLOY", description: "Launch on Base testnet for $0 and test live transactions.", tag: "Live" }
     ]
   },
+
+  // ==========================================
+  // PHASE 5: TESTING, DEPLOYMENT & LAUNCH
+  // ==========================================
   {
-    id: "m12",
-    slug: "12-capstone",
-    number: 12,
-    phase: "Phase 4: Full-Stack & Web3",
-    phaseNumber: 4,
-    title: "The 3-Point Test & Launch Day",
-    subtitle: "Verify Without Writing Code & Ship on Vercel",
+    id: "m14",
+    slug: "14-testing",
+    number: 14,
+    phase: "Phase 5: Testing & Deployment",
+    phaseNumber: 5,
+    title: "The Testing Masterclass",
+    subtitle: "Unit, Integration & Playwright End-to-End Tests",
+    duration: "20 Mins",
+    slidesCount: 25,
+    accentColor: "blue",
+    bgHex: "#1040C0",
+    heroImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    eli5Analogy: "🤖 The Robot Secret Shopper: Instead of clicking every button on your website by hand every day, you program a robot customer to open Chrome, fill out forms, buy products, and tell you if anything broke.",
+    description: "Stop fearing code breakages. Demystify the testing pyramid (Unit vs Integration vs E2E), watch Playwright simulate real browser interactions, and learn how to ask AI to generate comprehensive test suites in seconds.",
+    outcomes: [
+      "Understand the 4 testing tiers: Unit (Vitest), Integration (RTL), E2E (Playwright), Visual",
+      "Run automated browser tests with Playwright that click buttons and assert URL changes",
+      "Use the 3-Point Visual Test Sandwich for 30-second manual sanity checks",
+      "Direct AI to generate complete test suites automatically using atomic test prompts"
+    ],
+    workflowSteps: [
+      { step: "01", title: "CHOOSE TIER", description: "Decide whether you need Unit tests or an E2E user simulation.", tag: "Scope" },
+      { step: "02", title: "AI TEST PLAN", description: "Ask AI: 'Generate Playwright tests covering login and checkout'.", tag: "Prompt" },
+      { step: "03", title: "RUN SUITE", description: "Execute `npx playwright test` to watch simulated browsers run.", tag: "Execute" },
+      { step: "04", title: "ASSERT GREEN", description: "Verify all assertions pass with 0 errors before shipping.", tag: "Verify" }
+    ]
+  },
+  {
+    id: "m15",
+    slug: "15-deployment",
+    number: 15,
+    phase: "Phase 5: Testing & Deployment",
+    phaseNumber: 5,
+    title: "Production Deployment",
+    subtitle: "Vercel, Netlify, Render & VPS with PM2/Nginx",
+    duration: "20 Mins",
+    slidesCount: 25,
+    accentColor: "yellow",
+    bgHex: "#F0C020",
+    heroImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    eli5Analogy: "🚀 Launchpad to Orbit: Building code on your laptop is like assembling a rocket inside a garage. Deployment is rolling it out onto the launchpad, fueling the engines, and broadcasting it live to the entire planet.",
+    description: "Ship your app to production with zero confusion. Master 1-click Vercel & Netlify Git deployments, learn when to use Render for Express backends, and discover how to run apps on a $4/month Linux VPS using PM2 and Nginx.",
+    outcomes: [
+      "Deploy Next.js apps to Vercel in 1 click with automatic SSL and Edge CDN",
+      "Deploy persistent Node/Express backends to Render with custom build commands",
+      "Configure Ubuntu VPS instances with PM2 process manager for 24/7 self-healing uptime",
+      "Set up Nginx reverse proxy with free Let's Encrypt SSL via Certbot"
+    ],
+    workflowSteps: [
+      { step: "01", title: "GIT PUSH", description: "Push your working code to the main branch on GitHub.", tag: "Git" },
+      { step: "02", title: "PICK HOST", description: "Choose Vercel for Next.js, Render for Express, or VPS for control.", tag: "Hosting" },
+      { step: "03", title: "ADD SECRETS", description: "Enter environment variables securely in the host dashboard.", tag: "Config" },
+      { step: "04", title: "GO LIVE", description: "Trigger build and receive your global HTTPS production URL.", tag: "Ship" }
+    ]
+  },
+  {
+    id: "m16",
+    slug: "16-domains-launch",
+    number: 16,
+    phase: "Phase 5: Testing & Deployment",
+    phaseNumber: 5,
+    title: "Custom Domains & Launch Day",
+    subtitle: "DNS Records, SSL Setup & 30-Day Go-To-Market",
     duration: "15 Mins",
     slidesCount: 20,
     accentColor: "black",
     bgHex: "#121212",
     heroImage: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
-    eli5Analogy: "🥪 The Visual Test Sandwich: You don't need complex testing frameworks. Just do 3 checks: 1. Click the button (does it move?). 2. Press F12 (is there red text?). 3. Check Supabase (did the new row appear?). All 3 pass? You're good to ship!",
-    description: "How to test your app without writing automated test code. Avoid the top 10 beginner pitfalls, deploy to Vercel in 1 click, and follow the simple 30-day product launch roadmap.",
+    eli5Analogy: "🏠 The Custom Street Address: Deploying gives you a generic apartment number like vibe-app-xyz.vercel.app. Adding a custom domain replaces that with your own prestigious street address like mybrand.com.",
+    description: "The definitive guide to connecting custom domains. Demystify DNS A records and CNAME aliases, verify propagation with global resolvers, and execute the battle-tested 30-day product launch checklist.",
     outcomes: [
-      "Master the 3-Point Visual Test Sandwich (Click, Red text, Database check)",
-      "Deploy live to the internet on Vercel with automatic SSL and custom domains",
-      "Peer dependency fixes: Using `--legacy-peer-deps` when packages clash",
-      "Your step-by-step 30-day plan to launch your first product publicly"
+      "Demystify DNS: A records (IP addresses) vs CNAME records (domain aliases)",
+      "Step-by-step Vercel custom domain configuration (76.76.21.21 & cname.vercel-dns.com)",
+      "Verify global DNS propagation and automatic SSL certificate issuance",
+      "Execute the 30-day Go-To-Market roadmap to launch on Product Hunt and X"
     ],
     workflowSteps: [
-      { step: "01", title: "3-POINT TEST", description: "Click button → check F12 console → check Supabase row.", tag: "Test" },
-      { step: "02", title: "DEPLOY", description: "Push to GitHub and connect Vercel for 1-click live hosting.", tag: "Launch" },
-      { step: "03", title: "DOMAIN", description: "Attach your custom domain in 2 minutes with a simple CNAME.", tag: "DNS" },
-      { step: "04", title: "SHARE", description: "Share on X (#VibeCoding) and Product Hunt to get your first users.", tag: "Grow" }
+      { step: "01", title: "BUY DOMAIN", description: "Purchase your domain on Namecheap, GoDaddy, or Cloudflare.", tag: "Buy" },
+      { step: "02", title: "ADD TO VERCEL", description: "Enter your domain in Vercel project settings to view DNS records.", tag: "Vercel" },
+      { step: "03", title: "CONFIGURE DNS", description: "Set A record to 76.76.21.21 and CNAME www to cname.vercel-dns.com.", tag: "DNS" },
+      { step: "04", title: "PROPAGATE", description: "Check status, receive free automatic SSL certificate, and launch!", tag: "Live" }
     ]
   }
 ];

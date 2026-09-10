@@ -6,7 +6,7 @@ import { Terminal, Search, Copy, Check, Filter, Sparkles, Shield, Code, Cpu } fr
 import { clsx } from "clsx";
 
 interface CheatsheetItem {
-  category: "cli" | "agents" | "prompts" | "git" | "mcp" | "fullstack" | "web3";
+  category: "cli" | "agents" | "prompts" | "git" | "mcp" | "fullstack" | "web3" | "testing" | "deployment";
   title: string;
   command: string;
   description: string;
@@ -65,15 +65,15 @@ const CHEATSHEET_ITEMS: CheatsheetItem[] = [
   },
   {
     category: "prompts",
-    title: "The R-G-C-C-O Feature Prompt Template",
-    command: `### ROLE: Senior Full-Stack Architect
-### GOAL: [1-sentence explicit goal]
-### CONTEXT: Next.js 15 App Router, TypeScript, Tailwind CSS, Supabase
+    title: "The 6-Component Feature Prompt Recipe",
+    command: `### PERSONA: Senior Full-Stack Architect
+### GOAL: Build a persistent notes dashboard with MERN stack
+### CONTEXT: React 18, Express, MongoDB Atlas, Tailwind CSS
 ### CONSTRAINTS:
-- Do NOT rewrite existing working helper methods
-- Do NOT leave // TODO comments
-- Provide full working code with filepaths
-### OUTPUT: Step-by-step diff and verification tests`,
+- Do NOT touch existing auth routes
+- Always handle loading states and catch errors
+- Set Network Access 0.0.0.0/0 for MongoDB Atlas
+### OUTPUT: Provide full code files with filepaths and terminal commands`,
     description: "Guarantees zero hallucinations and production-grade code output.",
     shell: "bash"
   },
@@ -98,16 +98,16 @@ Analyze the root cause, explain why it happened, and provide surgical diffs.`,
   },
   {
     category: "git",
-    title: "Safe Branching Workflow",
-    command: `git checkout -b feature/stripe-payments\n# Build feature with AI\ngit push origin feature/stripe-payments`,
-    description: "Isolate experiments so your main branch is never broken.",
+    title: "Untrack Leaked .env Without Deleting Local File",
+    command: `git rm --cached .env.local\ngit commit -m "fix: untrack environment secrets"\ngit push origin main`,
+    description: "Stops Git from tracking sensitive files while preserving your local copy.",
     shell: "zsh"
   },
   {
     category: "git",
-    title: "Emergency Escape: Abort Merge Conflict",
-    command: `git merge --abort`,
-    description: "Cancels an active merge conflict and safely reverts to the previous working state.",
+    title: "Purge Past Leaked Secrets with BFG Repo-Cleaner",
+    command: `bfg --delete-files .env.local\ngit reflog expire --expire=now --all && git gc --prune=now --aggressive\ngit push origin main --force`,
+    description: "Wipes exposed passwords and keys from all past commit history completely.",
     shell: "zsh"
   },
   {
@@ -130,10 +130,49 @@ Analyze the root cause, explain why it happened, and provide surgical diffs.`,
   },
   {
     category: "fullstack",
-    title: "Scaffold Next.js 15 with Tailwind & Shadcn",
+    title: "Scaffold MERN Stack (Client + Server)",
+    command: `# Client (Vite + React)
+npm create vite@latest client -- --template react
+# Server (Express + Mongoose)
+mkdir server && cd server && npm init -y
+npm install express mongoose cors dotenv`,
+    description: "Clean dual-folder MERN stack scaffold ready for AI code generation.",
+    shell: "zsh"
+  },
+  {
+    category: "fullstack",
+    title: "Scaffold Next.js with Tailwind & Shadcn",
     command: `npx create-next-app@latest my-app --typescript --tailwind --eslint --app\ncd my-app\nnpx shadcn@latest init\nnpx shadcn@latest add button card dialog dropdown-menu input`,
     description: "Standard production foundation for modern AI SaaS applications.",
     shell: "zsh"
+  },
+  {
+    category: "testing",
+    title: "Install & Run Playwright E2E Tests",
+    command: `npm init playwright@latest\n# Run tests in headless browser\nnpx playwright test\n# Open visual interactive test UI\nnpx playwright test --ui`,
+    description: "End-to-end automated browser test suite simulating real user clicks.",
+    shell: "zsh"
+  },
+  {
+    category: "testing",
+    title: "Run Fast Unit Tests with Vitest",
+    command: `npm install -D vitest\n# Run unit tests\nnpx vitest`,
+    description: "Blazingly fast Vite-native test runner for pure functions and calculations.",
+    shell: "zsh"
+  },
+  {
+    category: "deployment",
+    title: "Deploy Next.js to Vercel via CLI",
+    command: `npm install -g vercel\nvercel login\nvercel --prod`,
+    description: "Deploys your project immediately to Vercel global edge network.",
+    shell: "zsh"
+  },
+  {
+    category: "deployment",
+    title: "Ubuntu VPS 24/7 Setup (PM2 + Nginx)",
+    command: `sudo apt update && sudo apt install nginx -y\nsudo npm install -g pm2\npm2 start npm --name "vibe-app" -- start\npm2 startup && pm2 save`,
+    description: "Runs your app 24/7 on a $4/month Linux server with automatic crash recovery.",
+    shell: "bash"
   },
   {
     category: "web3",
@@ -177,7 +216,7 @@ export default function CheatsheetPage() {
             VIBE CODING CHEATSHEET
           </h1>
           <p className="text-sm sm:text-base font-medium text-zinc-700 max-w-2xl mt-2">
-            Every terminal command, prompt template, MCP snippet, and full-stack setup instruction in one searchable copyable dashboard.
+            Every terminal command, prompt template, MCP snippet, MERN stack script, Playwright test, and deployment command in one searchable copyable dashboard.
           </p>
         </div>
 
@@ -204,9 +243,11 @@ export default function CheatsheetPage() {
                 { id: "cli", label: "CLI & OS" },
                 { id: "agents", label: "AGENTS" },
                 { id: "prompts", label: "PROMPTS" },
-                { id: "git", label: "GIT" },
+                { id: "git", label: "GIT & SAFETY" },
                 { id: "mcp", label: "MCP" },
-                { id: "fullstack", label: "FULLSTACK" },
+                { id: "fullstack", label: "MERN & FULLSTACK" },
+                { id: "testing", label: "TESTING" },
+                { id: "deployment", label: "DEPLOYMENT" },
                 { id: "web3", label: "WEB3" },
               ].map((cat) => (
                 <button

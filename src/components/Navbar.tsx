@@ -55,7 +55,7 @@ export const Navbar: React.FC = () => {
                 onClick={() => setModulesDropdownOpen(!modulesDropdownOpen)}
                 className="flex items-center gap-1.5 text-sm font-bold uppercase tracking-wider py-1 px-2 text-[#121212] hover:text-[#1040C0] transition-colors"
               >
-                <span>ALL MODULES (1-12)</span>
+                <span>ALL MODULES ({MODULES.length})</span>
                 <ChevronDown className={clsx("w-4 h-4 transition-transform", modulesDropdownOpen && "rotate-180")} />
               </button>
 
@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
                   <div className="absolute top-full left-0 mt-2 w-80 bg-white border-4 border-[#121212] shadow-hard-xl z-20 max-h-[70vh] overflow-y-auto divide-y-2 divide-zinc-200">
                     <div className="p-3 bg-[#121212] text-white flex items-center justify-between">
                       <span className="text-xs font-black uppercase tracking-widest text-[#F0C020]">
-                        12 MODULES CURRICULUM
+                        {MODULES.length} MODULES CURRICULUM
                       </span>
                       <span className="text-[10px] font-mono">180 MINS</span>
                     </div>
@@ -149,7 +149,7 @@ export const Navbar: React.FC = () => {
 
             <div className="py-3">
               <span className="block text-xs font-black uppercase tracking-widest text-zinc-500 mb-2">
-                All 12 Modules
+                All {MODULES.length} Modules
               </span>
               <div className="grid grid-cols-1 gap-2 max-h-60 overflow-y-auto">
                 {MODULES.map((mod) => (

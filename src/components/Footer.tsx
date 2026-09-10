@@ -43,17 +43,17 @@ export const Footer: React.FC = () => {
           {/* Modules Column 1 */}
           <div>
             <h4 className="font-black uppercase tracking-widest text-xs text-[#F0C020] mb-4 border-b-2 border-white/20 pb-2">
-              MODULES 1 – 6
+              MODULES 1 – 8
             </h4>
             <ul className="space-y-2 text-xs font-bold uppercase text-zinc-300">
-              {MODULES.slice(0, 6).map((m) => (
+              {MODULES.slice(0, 8).map((m) => (
                 <li key={m.id}>
                   <Link
                     href={`/module/${m.slug}`}
                     className="hover:text-[#F0C020] transition-colors flex items-center gap-1.5"
                   >
                     <span className="text-zinc-500">M{m.number}.</span>
-                    <span>{m.title}</span>
+                    <span className="truncate">{m.title}</span>
                   </Link>
                 </li>
               ))}
@@ -63,17 +63,17 @@ export const Footer: React.FC = () => {
           {/* Modules Column 2 */}
           <div>
             <h4 className="font-black uppercase tracking-widest text-xs text-[#1040C0] mb-4 border-b-2 border-white/20 pb-2">
-              MODULES 7 – 12
+              MODULES 9 – 16
             </h4>
             <ul className="space-y-2 text-xs font-bold uppercase text-zinc-300">
-              {MODULES.slice(6, 12).map((m) => (
+              {MODULES.slice(8, 16).map((m) => (
                 <li key={m.id}>
                   <Link
                     href={`/module/${m.slug}`}
                     className="hover:text-[#1040C0] transition-colors flex items-center gap-1.5"
                   >
                     <span className="text-zinc-500">M{m.number}.</span>
-                    <span>{m.title}</span>
+                    <span className="truncate">{m.title}</span>
                   </Link>
                 </li>
               ))}

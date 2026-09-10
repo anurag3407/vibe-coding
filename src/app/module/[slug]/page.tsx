@@ -9,10 +9,14 @@ import { EmergencyPanicProtocol } from "@/components/simulators/EmergencyPanicPr
 import { PromptDebugger } from "@/components/simulators/PromptDebugger";
 import { PromptComponentsMastery } from "@/components/simulators/PromptComponentsMastery";
 import { MergeConflictResolver } from "@/components/simulators/MergeConflictResolver";
+import { WhatNotToPushSimulator } from "@/components/simulators/WhatNotToPushSimulator";
 import { McpUsbHub } from "@/components/simulators/McpUsbHub";
-import { Web3EscrowSimulator } from "@/components/simulators/Web3EscrowSimulator";
 import { FullStackArchitectureMap } from "@/components/simulators/FullStackArchitectureMap";
 import { SecretSafetySimulator } from "@/components/simulators/SecretSafetySimulator";
+import { MernStackSimulator } from "@/components/simulators/MernStackSimulator";
+import { Web3EscrowSimulator } from "@/components/simulators/Web3EscrowSimulator";
+import { TestingMasterclassSimulator } from "@/components/simulators/TestingMasterclassSimulator";
+import { DeploymentDomainSimulator } from "@/components/simulators/DeploymentDomainSimulator";
 import { VisualTestSandwich } from "@/components/simulators/VisualTestSandwich";
 import { 
   ArrowLeft, 
@@ -77,7 +81,7 @@ export default function ModuleDetailPage({
 
           <div className="max-w-4xl">
             <span className="inline-block px-3 py-1 bg-[#F0C020] text-[#121212] font-black uppercase text-xs tracking-widest border-2 border-black shadow-hard-sm mb-6">
-              LESSON 0{currentModule.number} OF 12
+              LESSON {currentModule.number < 10 ? `0${currentModule.number}` : currentModule.number} OF {MODULES.length}
             </span>
             <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter leading-tight mb-4 text-white">
               {currentModule.title}
@@ -148,17 +152,18 @@ export default function ModuleDetailPage({
                   GOLDEN RULE
                 </span>
               </div>
+
               <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-4">
                 NEVER GUESS. <br />ALWAYS VERIFY.
               </h3>
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-8 font-medium">
-                You don&apos;t need to read 5,000 lines of code. Just check your browser preview, look for red errors in the console, and verify the buttons work.
+                You don&apos;t need to memorize thousands of syntax rules. Direct the AI clearly, inspect the output, run verified checks, and iterate.
               </p>
             </div>
 
             <div className="p-4 bg-white/10 border-2 border-white/20 text-xs font-mono text-zinc-300">
               <span className="text-[#F0C020] font-bold">PRO-TIP: </span>
-              If an AI generates something weird, don&apos;t panic. Paste the error into the AI and watch it apologize and fix it immediately.
+              If an AI generates something unexpected, paste the error back into the terminal agent and ask it to analyze and resolve it step-by-step.
             </div>
           </div>
 
@@ -170,7 +175,7 @@ export default function ModuleDetailPage({
         <section className="mb-16 sm:mb-20">
           <WorkflowDiagram
             steps={currentModule.workflowSteps}
-            title={`LESSON 0${currentModule.number}: STEP-BY-STEP WORKFLOW`}
+            title={`LESSON ${currentModule.number < 10 ? `0${currentModule.number}` : currentModule.number}: STEP-BY-STEP WORKFLOW`}
           />
         </section>
 
@@ -202,33 +207,59 @@ export default function ModuleDetailPage({
           </section>
         )}
 
-        {currentModule.slug === "9-mcp" && (
+        {currentModule.slug === "9-what-not-to-push" && (
+          <section className="mb-16 sm:mb-20">
+            <WhatNotToPushSimulator />
+          </section>
+        )}
+
+        {currentModule.slug === "10-mcp" && (
           <section className="mb-16 sm:mb-20">
             <McpUsbHub />
           </section>
         )}
 
-        {currentModule.slug === "10-fullstack" && (
+        {currentModule.slug === "11-fullstack" && (
           <section className="space-y-16 mb-16 sm:mb-20">
             <FullStackArchitectureMap />
             <SecretSafetySimulator />
           </section>
         )}
 
-        {currentModule.slug === "11-web3" && (
+        {currentModule.slug === "12-mern-stack" && (
+          <section className="mb-16 sm:mb-20">
+            <MernStackSimulator />
+          </section>
+        )}
+
+        {currentModule.slug === "13-web3" && (
           <section className="mb-16 sm:mb-20">
             <Web3EscrowSimulator />
           </section>
         )}
 
-        {currentModule.slug === "12-capstone" && (
-          <section className="mb-16 sm:mb-20">
+        {currentModule.slug === "14-testing" && (
+          <section className="space-y-16 mb-16 sm:mb-20">
+            <TestingMasterclassSimulator />
             <VisualTestSandwich />
           </section>
         )}
 
-        {/* Fallback command block */}
-        {!["2-cockpit", "3-panic-button", "4-prompting", "8-git-github", "9-mcp", "10-fullstack", "11-web3", "12-capstone"].includes(currentModule.slug) && (
+        {currentModule.slug === "15-deployment" && (
+          <section className="mb-16 sm:mb-20">
+            <DeploymentDomainSimulator />
+          </section>
+        )}
+
+        {currentModule.slug === "16-domains-launch" && (
+          <section className="space-y-16 mb-16 sm:mb-20">
+            <DeploymentDomainSimulator />
+            <VisualTestSandwich />
+          </section>
+        )}
+
+        {/* Fallback command block for modules without dedicated complex simulators */}
+        {!["2-cockpit", "3-panic-button", "4-prompting", "8-git-github", "9-what-not-to-push", "10-mcp", "11-fullstack", "12-mern-stack", "13-web3", "14-testing", "15-deployment", "16-domains-launch"].includes(currentModule.slug) && (
           <section className="mb-16 sm:mb-20">
             <div className="bg-white border-2 md:border-4 border-[#121212] shadow-hard-lg p-8 sm:p-10">
               <span className="px-3 py-1 bg-[#F0C020] text-[#121212] font-black text-xs uppercase mb-3 inline-block">
@@ -261,7 +292,7 @@ claude "Review the requirements for ${currentModule.title}. Create a step-by-ste
               className="w-full sm:w-auto px-6 py-3.5 bg-white text-[#121212] border-2 md:border-4 border-[#121212] shadow-hard-sm font-black text-xs uppercase tracking-wider btn-tactile hover:bg-zinc-100 flex items-center justify-center gap-2"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>PREV: L0{prevModule.number} {prevModule.title}</span>
+              <span>PREV: L{prevModule.number < 10 ? `0${prevModule.number}` : prevModule.number} {prevModule.title}</span>
             </Link>
           ) : (
             <div />
@@ -272,7 +303,7 @@ claude "Review the requirements for ${currentModule.title}. Create a step-by-ste
               href={`/module/${nextModule.slug}`}
               className="w-full sm:w-auto px-8 py-3.5 bg-[#D02020] text-white border-2 md:border-4 border-[#121212] shadow-hard-sm font-black text-xs uppercase tracking-wider btn-tactile hover:bg-[#D02020]/90 flex items-center justify-center gap-2"
             >
-              <span>NEXT: L0{nextModule.number} {nextModule.title}</span>
+              <span>NEXT: L{nextModule.number < 10 ? `0${nextModule.number}` : nextModule.number} {nextModule.title}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           ) : (
