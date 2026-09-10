@@ -120,26 +120,26 @@ export const MODULES: ModuleData[] = [
     number: 4,
     phase: "Phase 2: Directing the AI",
     phaseNumber: 2,
-    title: "How to Talk to AI (R-G-C-C-O)",
-    subtitle: "Get Perfect Code & Paste Errors Like a Pro",
+    title: "What is a Prompt & How to Write One",
+    subtitle: "The 6 Core Components, Negative Constraints & Pro Formulas",
     duration: "20 Mins",
-    slidesCount: 25,
+    slidesCount: 30,
     accentColor: "black",
     bgHex: "#121212",
     heroImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-    eli5Analogy: "👨‍🍳 The Master Chef: If you walk into a kitchen and say 'make food', you get mystery stew. If you say 'make a crispy crust pizza with extra basil, zero dairy, sliced in 4', you get the exact meal you wanted.",
-    description: "Stop chatting casually with AI. Master the 5-part R-G-C-C-O prompt formula, learn how to right-click in Google Chrome to grab the red error text, and fix bugs in 10 seconds.",
+    eli5Analogy: "👨‍🍳 The Master Chef's Recipe: A prompt is not a Google search. A search looks for keywords; a prompt programs a neural network. If you say 'make food', you get random soup. If you give the 6 exact ingredients, you get the exact meal you crave.",
+    description: "The complete masterclass on prompts. Learn what a prompt truly is, master the 6 core components (Persona, Goal, Context, Negative Constraints, Few-Shot, Output Format), and use Reverse Prompting to let AI interview you before coding.",
     outcomes: [
-      "The 5-part formula: Role, Goal, Context, Constraints, Output",
-      "Negative Prompting: Explicitly telling AI what NOT to break",
-      "Browser DevTools: Press F12, find the red text, paste it into AI, and get the fix",
-      "The 1-feature-at-a-time rule to eliminate hallucinated code"
+      "What a prompt actually is: Compiling natural language into model weights",
+      "The 6 Essential Components: Persona, Task, Context, Constraints, Examples, Output",
+      "Negative Prompting: Explicitly telling AI what NOT to touch to protect your code",
+      "Reverse Prompting: Letting AI interview you to extract complete product specifications"
     ],
     workflowSteps: [
-      { step: "01", title: "ROLE & GOAL", description: "Give AI a senior title and state the single feature you want.", tag: "Goal" },
-      { step: "02", title: "TECH CONTEXT", description: "Tell it your stack: Next.js 15, Tailwind, Supabase.", tag: "Context" },
-      { step: "03", title: "GUARDRAILS", description: "Add negative rules: 'Do NOT delete existing code or leave placeholders'.", tag: "Safety" },
-      { step: "04", title: "SURGICAL DIFF", description: "Ask for complete working code or unified diffs.", tag: "Result" }
+      { step: "01", title: "PERSONA & GOAL", description: "Set senior role and state the single atomic feature.", tag: "Identity" },
+      { step: "02", title: "CONTEXT INJECT", description: "Specify tech stack, framework versions, and file paths.", tag: "Context" },
+      { step: "03", title: "NEGATIVE RULES", description: "Add 'Do NOT delete comments, do NOT add new packages'.", tag: "Guardrails" },
+      { step: "04", title: "PROVEN RECIPE", description: "Choose a recipe (Feature, Bug Fix, Reverse Interview, Audit).", tag: "Output" }
     ]
   },
   {

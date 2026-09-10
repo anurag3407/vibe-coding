@@ -7,6 +7,7 @@ import { TerminalSnippet } from "@/components/TerminalSnippet";
 import { TerminalOsSwitcher } from "@/components/simulators/TerminalOsSwitcher";
 import { EmergencyPanicProtocol } from "@/components/simulators/EmergencyPanicProtocol";
 import { PromptDebugger } from "@/components/simulators/PromptDebugger";
+import { PromptComponentsMastery } from "@/components/simulators/PromptComponentsMastery";
 import { MergeConflictResolver } from "@/components/simulators/MergeConflictResolver";
 import { McpUsbHub } from "@/components/simulators/McpUsbHub";
 import { Web3EscrowSimulator } from "@/components/simulators/Web3EscrowSimulator";
@@ -189,7 +190,8 @@ export default function ModuleDetailPage({
         )}
 
         {currentModule.slug === "4-prompting" && (
-          <section className="mb-16 sm:mb-20">
+          <section className="space-y-16 mb-16 sm:mb-20">
+            <PromptComponentsMastery />
             <PromptDebugger />
           </section>
         )}
