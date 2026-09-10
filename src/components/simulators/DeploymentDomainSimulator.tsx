@@ -67,6 +67,37 @@ export const DeploymentDomainSimulator: React.FC = () => {
         </p>
       </div>
 
+      {/* Visual Deployment & DNS Routing Flow Diagram */}
+      <div className="mb-8 p-5 bg-zinc-50 border-2 md:border-4 border-[#121212] shadow-hard-md">
+        <div className="text-[10px] font-mono font-bold uppercase text-[#1040C0] mb-3 flex items-center gap-1.5">
+          <Globe className="w-3.5 h-3.5 text-[#1040C0]" />
+          <span>HOW YOUR USERS REACH YOUR HOSTED CODE GLOBALLY</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#1040C0]">STEP 1: BROWSER</div>
+            <div className="font-black uppercase text-xs mt-0.5">User Enters URL</div>
+            <div className="text-[11px] text-zinc-600 mt-1">Visitor types <code className="bg-zinc-100 px-1 font-mono">mycoolapp.com</code> on iPhone or Mac.</div>
+          </div>
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#D02020]">STEP 2: DNS LOOKUP</div>
+            <div className="font-black uppercase text-xs mt-0.5">A / CNAME Record</div>
+            <div className="text-[11px] text-zinc-600 mt-1">DNS resolves domain to Vercel Edge IP: <code className="bg-zinc-100 px-1 font-mono">76.76.21.21</code>.</div>
+          </div>
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#F0C020]">STEP 3: EDGE ROUTING</div>
+            <div className="font-black uppercase text-xs mt-0.5">Closest CDN City</div>
+            <div className="text-[11px] text-zinc-600 mt-1">Vercel routes request to nearest server in &lt;15 milliseconds.</div>
+          </div>
+          <div className="p-3 bg-[#121212] text-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-green-400">STEP 4: SSL HTTPS</div>
+            <div className="font-black uppercase text-xs mt-0.5 text-green-400">Lock Icon Secured</div>
+            <div className="text-[11px] text-zinc-300 mt-1">Free automatic Let&apos;s Encrypt certificate encrypts traffic.</div>
+          </div>
+        </div>
+      </div>
+
       {/* Tabs */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
         {[

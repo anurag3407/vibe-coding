@@ -36,6 +36,58 @@ export const MernStackSimulator: React.FC = () => {
         </p>
       </div>
 
+      {/* Visual MERN Architecture Pipeline Diagram */}
+      <div className="mb-8 p-6 bg-zinc-50 border-2 md:border-4 border-[#121212] shadow-hard-md">
+        <div className="text-[10px] font-mono font-bold uppercase text-[#D02020] mb-3 flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-[#D02020] animate-pulse" />
+          <span>MERN END-TO-END DATA FLOW WORKFLOW</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
+          {/* Node 1: React Frontend */}
+          <div className="p-4 bg-white border-2 border-black relative">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[10px] font-black uppercase px-2 py-0.5 bg-[#1040C0] text-white">
+                CLIENT LAYER
+              </span>
+              <Layout className="w-4 h-4 text-[#1040C0]" />
+            </div>
+            <div className="font-black text-sm uppercase text-[#121212]">1. React UI & State</div>
+            <div className="text-[11px] text-zinc-600 mt-1 font-medium">
+              User types input &rarr; Dispatches async <code className="bg-zinc-100 px-1 font-mono">fetch(&apos;/api/posts&apos;)</code>.
+            </div>
+          </div>
+
+          {/* Node 2: Express Server */}
+          <div className="p-4 bg-white border-2 border-black relative">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[10px] font-black uppercase px-2 py-0.5 bg-[#D02020] text-white">
+                SERVER LAYER
+              </span>
+              <Server className="w-4 h-4 text-[#D02020]" />
+            </div>
+            <div className="font-black text-sm uppercase text-[#121212]">2. Express & CORS</div>
+            <div className="text-[11px] text-zinc-600 mt-1 font-medium">
+              Allows origins via CORS &rarr; Validates types with Mongoose model &rarr; Writes to DB.
+            </div>
+          </div>
+
+          {/* Node 3: MongoDB Atlas */}
+          <div className="p-4 bg-white border-2 border-black relative">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[10px] font-black uppercase px-2 py-0.5 bg-[#121212] text-white">
+                CLOUD DATABASE
+              </span>
+              <Database className="w-4 h-4 text-[#F0C020]" />
+            </div>
+            <div className="font-black text-sm uppercase text-[#121212]">3. MongoDB Atlas</div>
+            <div className="text-[11px] text-zinc-600 mt-1 font-medium">
+              Whitelisted <code className="bg-zinc-100 px-1 font-mono text-[#1040C0]">0.0.0.0/0</code> &rarr; Stores BSON document &rarr; Returns JSON.
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Navigation Tabs */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
         {[

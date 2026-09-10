@@ -52,12 +52,21 @@ export default function ModuleDetailPage({
     <div className="bg-[#F0F0F0] text-[#121212] min-h-screen">
       
       {/* =========================================================================
-          MODULE HERO BANNER: Solid Primary Bauhaus Color Block
+          MODULE HERO BANNER: Solid Primary Bauhaus Color Block + Visual Art
       ========================================================================= */}
       <section
         style={{ backgroundColor: currentModule.bgHex }}
-        className="text-white border-b-4 border-[#121212] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+        className="text-white border-b-4 border-[#121212] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       >
+        {/* Background Architectural Overlay */}
+        <div className="absolute inset-0 z-0 opacity-15 mix-blend-luminosity pointer-events-none">
+          <img
+            src={currentModule.heroImage}
+            alt={currentModule.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
         <div className="max-w-7xl mx-auto relative z-10">
           
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
@@ -70,6 +79,12 @@ export default function ModuleDetailPage({
             </Link>
 
             <div className="flex items-center gap-2 font-mono text-xs uppercase font-bold text-white/90">
+              <Link
+                href="/workflows"
+                className="px-3 py-1.5 bg-[#F0C020] text-black border border-black font-black uppercase text-[11px] hover:bg-yellow-400 btn-tactile flex items-center gap-1.5 shadow-hard-sm"
+              >
+                <span>VIEW WORKFLOWS &rarr;</span>
+              </Link>
               <span className="px-3 py-1.5 bg-black/40 border border-white/20">
                 {currentModule.phase}
               </span>
@@ -79,16 +94,38 @@ export default function ModuleDetailPage({
             </div>
           </div>
 
-          <div className="max-w-4xl">
-            <span className="inline-block px-3 py-1 bg-[#F0C020] text-[#121212] font-black uppercase text-xs tracking-widest border-2 border-black shadow-hard-sm mb-6">
-              LESSON {currentModule.number < 10 ? `0${currentModule.number}` : currentModule.number} OF {MODULES.length}
-            </span>
-            <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter leading-tight mb-4 text-white">
-              {currentModule.title}
-            </h1>
-            <p className="text-xl sm:text-2xl font-medium text-white/90 leading-relaxed">
-              {currentModule.subtitle}
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="inline-block px-3 py-1 bg-[#F0C020] text-[#121212] font-black uppercase text-xs tracking-widest border-2 border-black shadow-hard-sm mb-6">
+                LESSON {currentModule.number < 10 ? `0${currentModule.number}` : currentModule.number} OF {MODULES.length}
+              </span>
+              <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter leading-tight mb-4 text-white">
+                {currentModule.title}
+              </h1>
+              <p className="text-xl sm:text-2xl font-medium text-white/90 leading-relaxed">
+                {currentModule.subtitle}
+              </p>
+            </div>
+
+            {/* Visual Lesson Poster Card */}
+            <div className="lg:col-span-4 hidden lg:block">
+              <div className="p-3 bg-white border-4 border-black shadow-hard-xl rotate-1">
+                <div className="relative w-full h-56 border-2 border-black overflow-hidden bg-zinc-900">
+                  <img
+                    src={currentModule.heroImage}
+                    alt={currentModule.title}
+                    className="w-full h-full object-cover contrast-125"
+                  />
+                  <div className="absolute bottom-2 left-2 px-2.5 py-1 bg-[#121212] text-white font-mono text-[10px] font-bold uppercase border border-white/30">
+                    LESSON 0{currentModule.number} POSTER
+                  </div>
+                </div>
+                <div className="mt-2.5 flex items-center justify-between text-[#121212] font-black text-xs uppercase px-1">
+                  <span className="truncate max-w-[180px]">{currentModule.title}</span>
+                  <span className="text-[#D02020]">{currentModule.duration}</span>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

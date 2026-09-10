@@ -49,6 +49,18 @@ export const Navbar: React.FC = () => {
               DASHBOARD
             </Link>
 
+            <Link
+              href="/workflows"
+              className={clsx(
+                "text-sm font-bold uppercase tracking-wider py-1 px-2 border-b-2 transition-all",
+                pathname === "/workflows"
+                  ? "border-[#1040C0] text-[#1040C0] font-black"
+                  : "border-transparent text-[#121212] hover:border-[#121212]"
+              )}
+            >
+              WORKFLOWS
+            </Link>
+
             {/* Modules Dropdown */}
             <div className="relative">
               <button
@@ -138,6 +150,13 @@ export const Navbar: React.FC = () => {
               className="block py-2.5 font-black uppercase text-sm text-[#121212]"
             >
               Dashboard
+            </Link>
+            <Link
+              href="/workflows"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2.5 font-black uppercase text-sm text-[#D02020]"
+            >
+              Interactive Workflows
             </Link>
             <Link
               href="/cheatsheet"

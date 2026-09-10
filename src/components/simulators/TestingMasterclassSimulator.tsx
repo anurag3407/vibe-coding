@@ -107,6 +107,37 @@ export const TestingMasterclassSimulator: React.FC = () => {
         </p>
       </div>
 
+      {/* Visual Quality Assurance Pipeline */}
+      <div className="mb-8 p-5 bg-zinc-50 border-2 md:border-4 border-[#121212] shadow-hard-md">
+        <div className="text-[10px] font-mono font-bold uppercase text-[#1040C0] mb-3 flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-[#1040C0] animate-pulse" />
+          <span>CONTINUOUS VERIFICATION &amp; SHIP PIPELINE</span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#D02020] uppercase">STAGE 1: FAST</div>
+            <div className="font-black uppercase text-xs mt-0.5">Unit Tests (Vitest)</div>
+            <div className="text-[11px] text-zinc-600 mt-1">Tests calculations & pure logic in 1ms.</div>
+          </div>
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#1040C0] uppercase">STAGE 2: WIRING</div>
+            <div className="font-black uppercase text-xs mt-0.5">Integration (RTL)</div>
+            <div className="text-[11px] text-zinc-600 mt-1">Tests UI buttons & forms in 50ms.</div>
+          </div>
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#F0C020] uppercase">STAGE 3: USER FLOW</div>
+            <div className="font-black uppercase text-xs mt-0.5">E2E (Playwright)</div>
+            <div className="text-[11px] text-zinc-600 mt-1">Simulates real Chromium browser clicks.</div>
+          </div>
+          <div className="p-3 bg-[#121212] text-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-green-400 uppercase">STAGE 4: VERIFY</div>
+            <div className="font-black uppercase text-xs mt-0.5 text-green-400">Production Ship</div>
+            <div className="text-[11px] text-zinc-300 mt-1">Deploy to Vercel with 100% confidence.</div>
+          </div>
+        </div>
+      </div>
+
       {/* Tabs */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
         {[

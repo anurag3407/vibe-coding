@@ -38,6 +38,15 @@ export const Footer: React.FC = () => {
               <br />
               Form follows function. English is the new compiler.
             </div>
+
+            <div className="mt-4 flex flex-col gap-1.5 text-xs font-bold uppercase">
+              <Link href="/workflows" className="text-[#F0C020] hover:underline flex items-center gap-1">
+                <span>&rarr; Interactive Workflows</span>
+              </Link>
+              <Link href="/cheatsheet" className="text-zinc-300 hover:text-white flex items-center gap-1">
+                <span>&rarr; Command Cheatsheet</span>
+              </Link>
+            </div>
           </div>
 
           {/* Modules Column 1 */}

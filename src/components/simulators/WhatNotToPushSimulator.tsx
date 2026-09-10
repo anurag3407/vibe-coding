@@ -102,6 +102,37 @@ export const WhatNotToPushSimulator: React.FC = () => {
         </p>
       </div>
 
+      {/* Visual Secret Defense Pipeline */}
+      <div className="mb-8 p-5 bg-zinc-50 border-2 md:border-4 border-[#121212] shadow-hard-md">
+        <div className="text-[10px] font-mono font-bold uppercase text-[#D02020] mb-3 flex items-center gap-1.5">
+          <ShieldAlert className="w-3.5 h-3.5 text-[#D02020]" />
+          <span>THE 4-LAYER REPOSITORY DEFENSE WORKFLOW</span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#1040C0]">LAYER 1: LOCAL</div>
+            <div className="font-black uppercase text-xs mt-0.5">Use .env.local</div>
+            <div className="text-[11px] text-zinc-600 mt-1">Keep secrets in local files that Git never sees.</div>
+          </div>
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#D02020]">LAYER 2: .GITIGNORE</div>
+            <div className="font-black uppercase text-xs mt-0.5">Lock .gitignore</div>
+            <div className="text-[11px] text-zinc-600 mt-1">Always ignore <code className="bg-zinc-100 px-1 font-mono">.env*</code> before first commit.</div>
+          </div>
+          <div className="p-3 bg-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-[#F0C020]">LAYER 3: HOOKS</div>
+            <div className="font-black uppercase text-xs mt-0.5">Pre-Commit Gitleaks</div>
+            <div className="text-[11px] text-zinc-600 mt-1">Blocks commits on your laptop if a key is found.</div>
+          </div>
+          <div className="p-3 bg-[#121212] text-white border-2 border-black">
+            <div className="text-[10px] font-mono font-bold text-green-400">LAYER 4: RECOVERY</div>
+            <div className="font-black uppercase text-xs mt-0.5 text-green-400">Revoke &amp; BFG Purge</div>
+            <div className="text-[11px] text-zinc-300 mt-1">Instant key invalidation + past commit wipe.</div>
+          </div>
+        </div>
+      </div>
+
       {/* Navigation Tabs */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
         {[

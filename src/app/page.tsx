@@ -4,6 +4,7 @@ import { MODULES } from "@/data/modules";
 import { BauhausButton } from "@/components/BauhausButton";
 import { BauhausCard } from "@/components/BauhausCard";
 import { WorkflowDiagram } from "@/components/WorkflowDiagram";
+import { VisualWorkflowStudio } from "@/components/VisualWorkflowStudio";
 import { TerminalOsSwitcher } from "@/components/simulators/TerminalOsSwitcher";
 import { EmergencyPanicProtocol } from "@/components/simulators/EmergencyPanicProtocol";
 import { PreFlightChecklist } from "@/components/simulators/PreFlightChecklist";
@@ -25,7 +26,8 @@ import {
   Rocket,
   Bot,
   Lock,
-  Database
+  Database,
+  Workflow
 } from "lucide-react";
 import { clsx } from "clsx";
 
@@ -136,9 +138,14 @@ export default function HomePage() {
                   <ArrowRight className="w-5 h-5" />
                 </BauhausButton>
 
+                <BauhausButton href="/workflows" variant="blue" size="lg">
+                  <Workflow className="w-5 h-5" />
+                  <span>VIEW WORKFLOWS</span>
+                </BauhausButton>
+
                 <BauhausButton href="/cheatsheet" variant="yellow" size="lg">
                   <Terminal className="w-5 h-5" />
-                  <span>VIEW CHEATSHEET</span>
+                  <span>CHEATSHEET</span>
                 </BauhausButton>
               </div>
 
@@ -156,7 +163,7 @@ export default function HomePage() {
                 <span>&bull;</span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 clip-triangle bg-[#F0C020]" />
-                  16 Full Modules
+                  16 Interactive Lessons
                 </span>
               </div>
             </div>
@@ -199,6 +206,25 @@ export default function HomePage() {
 
           </div>
         </div>
+      </section>
+
+      {/* =========================================================================
+          INTERACTIVE ARCHITECTURAL WORKFLOW STUDIO
+      ========================================================================= */}
+      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b-4 border-[#121212]">
+        <div className="max-w-3xl mb-8">
+          <span className="inline-block px-3 py-1 bg-[#F0C020] text-[#121212] font-black uppercase text-xs tracking-widest border-2 border-black shadow-hard-sm mb-3">
+            VISUAL PIPELINES
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-[#121212]">
+            END-TO-END SYSTEM WORKFLOWS
+          </h2>
+          <p className="text-base text-zinc-600 font-medium mt-2">
+            Click through the stages or press &quot;Autoplay Pipeline&quot; to inspect inputs, transformations, code snippets, and verified outputs.
+          </p>
+        </div>
+
+        <VisualWorkflowStudio />
       </section>
 
       {/* =========================================================================
@@ -281,7 +307,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          THE 5 SEQUENTIAL PHASES (16 LESSONS)
+          THE 5 SEQUENTIAL PHASES (16 LESSONS WITH VISUAL POSTER CARDS)
       ========================================================================= */}
       <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b-4 border-[#121212]">
         <div className="max-w-3xl mb-16">
@@ -312,7 +338,7 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Module Cards in this Phase */}
+              {/* Module Cards in this Phase with Rich Visual Image Posters */}
               <div className={clsx(
                 "p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6",
                 phase.modules.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
@@ -328,30 +354,39 @@ export default function HomePage() {
                       headerColor={mod.accentColor}
                       badgeColor={mod.accentColor}
                       badgeShape={mod.number % 3 === 0 ? "triangle" : mod.number % 2 === 0 ? "circle" : "square"}
-                      className="h-full flex flex-col justify-between group-hover:-translate-y-2 transition-transform p-6"
+                      className="h-full flex flex-col justify-between group-hover:-translate-y-2 transition-transform p-5"
                     >
                       <div>
-                        <div className="flex items-center justify-between text-xs font-bold uppercase text-zinc-500 mb-3">
-                          <span className="px-2 py-0.5 bg-zinc-100 border border-black">
+                        {/* Visual Image Header */}
+                        <div className="relative w-full h-36 mb-4 border-2 border-black overflow-hidden bg-zinc-100 shadow-hard-sm">
+                          <img
+                            src={mod.heroImage}
+                            alt={mod.title}
+                            className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                            loading="lazy"
+                          />
+                          <div className="absolute top-2 left-2 px-2 py-0.5 bg-[#121212] text-white text-[10px] font-mono font-bold uppercase">
                             {mod.duration}
-                          </span>
-                          <span className="font-mono">{mod.slidesCount} SLIDES</span>
+                          </div>
+                          <div className="absolute bottom-2 right-2 px-2 py-0.5 bg-[#F0C020] text-black text-[10px] font-black uppercase border border-black shadow-hard-sm">
+                            {mod.slidesCount} SLIDES
+                          </div>
                         </div>
 
-                        <h4 className="text-xl font-black uppercase tracking-tight text-[#121212] group-hover:text-[#D02020] transition-colors mb-2">
+                        <h4 className="text-lg font-black uppercase tracking-tight text-[#121212] group-hover:text-[#D02020] transition-colors mb-1.5 leading-snug">
                           {mod.title}
                         </h4>
 
-                        <p className="text-xs text-zinc-600 font-medium leading-relaxed mb-4">
+                        <p className="text-xs text-zinc-600 font-medium leading-relaxed mb-4 line-clamp-2">
                           {mod.subtitle}
                         </p>
 
-                        <div className="p-3 bg-zinc-100 border border-zinc-300 text-xs font-medium text-zinc-800 mb-4 line-clamp-2">
+                        <div className="p-2.5 bg-zinc-100 border border-zinc-300 text-[11px] font-medium text-zinc-800 mb-4 line-clamp-2">
                           {mod.eli5Analogy}
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t-2 border-zinc-200 flex items-center justify-between text-xs font-black uppercase">
+                      <div className="pt-3 border-t-2 border-zinc-200 flex items-center justify-between text-xs font-black uppercase">
                         <span className="text-[#1040C0] group-hover:underline">OPEN LESSON</span>
                         <ArrowRight className="w-4 h-4 text-[#1040C0] group-hover:translate-x-1.5 transition-transform" />
                       </div>
@@ -406,8 +441,13 @@ export default function HomePage() {
               <ArrowRight className="w-5 h-5" />
             </BauhausButton>
 
+            <BauhausButton href="/workflows" variant="blue" size="lg">
+              <Workflow className="w-5 h-5" />
+              <span>EXPLORE WORKFLOWS</span>
+            </BauhausButton>
+
             <BauhausButton href="/cheatsheet" variant="black" size="lg">
-              <span>EXPLORE CHEATSHEET</span>
+              <span>VIEW CHEATSHEET</span>
             </BauhausButton>
           </div>
         </div>
